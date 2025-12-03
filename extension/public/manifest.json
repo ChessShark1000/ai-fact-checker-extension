@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "AI Fact Checker",
+  "version": "1.0.0",
+  "description": "Get instant AI fact-checking for any highlighted text with a truth rating and explanation",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "extension/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["extension/config.js", "extension/content.js"],
+      "css": ["extension/content.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AI Fact Checker"
+  },
+  "icons": {
+    "16": "icon-16.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  }
+}
