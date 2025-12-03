@@ -7,46 +7,58 @@ An AI-powered Chrome extension that provides instant fact-checking for highlight
 - 🔍 **Instant Fact Checking** - Highlight any text to get an AI-powered truth rating (1-10 scale)
 - 🤖 **AI Analysis** - Advanced AI analyzes and verifies claims across any topic
 - 💬 **Interactive Chat** - Ask follow-up questions for deeper context
-- 🎨 **Clean UI** - Modern popup interface with enable/disable toggle
+- 🎨 **Clean UI** - Modern popup interface positioned next to selected text
 - 🌓 **Dark Mode Support** - Automatically adapts to system theme
+- 🔒 **Secure** - All AI processing happens on our secure backend
 
 ## Installation
 
-1. Clone this repository
-2. Open Chrome and navigate to `chrome://extensions/`
-3. Enable "Developer mode" in the top-right corner
-4. Click "Load unpacked"
-5. Select the `extension/public` folder from this repository
-6. The extension is now installed!
+Install from the [Chrome Web Store](#) (link coming soon)
 
 ## Usage
 
-1. Click the extension icon to enable/disable the fact checker
-2. Highlight any text on a webpage (minimum 10 characters)
-3. A popup will appear with:
-   - Truth rating (1-10)
-   - Confidence level (Likely True, Uncertain, Likely False)
+1. Highlight any text on a webpage (minimum 10 characters)
+2. A popup will appear next to your selection with:
+   - Truth rating (1-10 scale)
+   - Visual rating indicator
    - AI-generated explanation
-   - Option to get more context
+   - "More Context" button for detailed analysis
+   - Interactive chat for follow-up questions
+
+## Privacy
+
+We take your privacy seriously. See our [Privacy Policy](https://github.com/ChessShark1000/ai-fact-checker-extension/blob/master/PRIVACY_POLICY.md) for details.
+
+**Key points:**
+- Only selected text is sent to our servers for analysis
+- No browsing history or personal data is collected
+- All data transmission is encrypted via HTTPS
 
 ## Project Structure
 
 ```
-extension/
-├── public/              # Chrome extension files
-│   ├── extension/       # Content and background scripts
-│   │   ├── background.js
-│   │   ├── content.js
-│   │   └── content.css
-│   ├── manifest.json    # Extension manifest
-│   ├── popup.html       # Extension popup UI
-│   └── popup.js         # Popup functionality
-└── app/                 # Next.js web app (optional)
+extension/public/
+├── extension/           # Chrome extension scripts
+│   ├── background.js   # Service worker
+│   ├── config.js       # Backend configuration
+│   ├── content.js      # Content script for UI injection
+│   └── content.css     # Popup styles
+├── manifest.json       # Extension manifest
+└── icons/              # Extension icons (16x16, 48x48, 128x128)
 ```
 
 ## Development
 
-The extension is built with vanilla JavaScript and does not require any build process. Simply edit the files in `extension/public` and reload the extension in Chrome.
+For developer installation:
+1. Clone this repository
+2. Navigate to `chrome://extensions/`
+3. Enable "Developer mode"
+4. Click "Load unpacked"
+5. Select the `extension/public` folder
+
+## License
+
+MIT
 
 ## License
 
