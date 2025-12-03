@@ -518,10 +518,20 @@ function showFactCheckerPopup(text) {
   const top = rect.top + window.scrollY
   const left = rect.right + window.scrollX + 10 // 10px gap from selection
   
-  // Keep popup on screen
+  // Adjust position if popup would go off screen
   const popupWidth = 280 // Our fixed popup width
-  const maxLeft = window.innerWidth - popupWidth - 20 // 20px margin
-  const finalLeft = Math.min(left, maxLeft)
+  const viewportWidth = window.innerWidth + window.scrollX
+  
+  let finalLeft = left
+  // If popup would overflow right edge, position it to the left of selection instead
+  if (left + popupWidth > viewportWidth - 20) {
+    finalLeft = rect.left + window.scrollX - popupWidth - 10
+    // If still off screen (selection is near left edge), just position at left edge
+    if (finalLeft < 10) {
+      finalLeft = 10
+    }
+  }
+  
   const finalTop = Math.max(top, 10) // Just keep it at least 10px from top
   
   popup.style.top = finalTop + "px"
